@@ -8,11 +8,11 @@ movies <-
   read_csv("./data/dis3.csv", show_col_types = FALSE) %>% 
   mutate(
     vote_weight  = scales::rescale(`Num Votes`, to = c(0, 1)),
-    release_year = year(`Release Date`),
+    # release_year = year(`Release Date`),
     label        = if_else(rank(-`Num Votes`) <= 10, Title, NA_character_)
   )
 
-ggplot(movies, aes(x = release_year, y = `IMDb Rating`)) +
+ggplot(movies, aes(x = `Release Date`, y = `IMDb Rating`)) +
   geom_point(aes(alpha = vote_weight), stroke = 0.2) +
   geom_smooth(aes(weight = `Num Votes`), method = "loess", se = FALSE) +
   geom_text_repel(
