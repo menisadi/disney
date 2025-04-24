@@ -1,0 +1,15 @@
+---
+title: "Disney Movies Analysis"
+author: "Meni"
+format: html
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+```{r}
+#| echo: false
+#| eval: true
+#| file: stats.R
+```
